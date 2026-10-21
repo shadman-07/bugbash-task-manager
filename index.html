@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="A modern task manager to plan, track and complete your daily goals.">
+  <title>Task Manager | Bug Bash Arena</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="navbar">
+      <a class="brand" href="#" aria-label="Bug Bash Arena home">
+        <span class="brand-icon">✦</span>
+        <span>BUG BASH <span class="accent">ARENA</span></span>
+      </a>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+        ☼
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">YOUR PERSONAL WORKSPACE</span>
+        <h1>Task <span class="gradient-text">Manager.</span></h1>
+        <p>Small steps every day lead to big achievements.</p>
+
+        <div class="hero-pills">
+          <span>✓ Plan smarter</span>
+          <span>↗ Stay focused</span>
+          <span>✦ Get things done</span>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="section-heading">
+          <div>
+            <h2>My Tasks</h2>
+            <p>Organize your day, one task at a time.</p>
+          </div>
+          <span id="todayDate" class="date-label"></span>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <input
+            id="taskInput"
+            type="text"
+            placeholder="What needs to get done?"
+            maxlength="120"
+            required
+            aria-label="Task title"
+          >
+
+          <select id="taskPriority" aria-label="Task priority">
+            <option value="medium">Medium priority</option>
+            <option value="high">High priority</option>
+            <option value="low">Low priority</option>
+          </select>
+
+          <button class="primary-btn" type="submit">
+            <span>＋</span> Add Task
+          </button>
+        </form>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search"
+              placeholder="Search your tasks..." aria-label="Search tasks">
+          </label>
+
+          <select id="filterSelect" aria-label="Filter tasks">
+            <option value="all">All tasks</option>
+            <option value="todo">To do</option>
+            <option value="progress">In progress</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+
+        <section class="stats" aria-label="Task statistics">
+          <article class="stat-card">
+            <span class="stat-icon blue">▤</span>
+            <div><strong id="totalCount">0</strong><p>Total tasks</p></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon yellow">◷</span>
+            <div><strong id="progressCount">0</strong><p>In progress</p></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon green">✓</span>
+            <div><strong id="doneCount">0</strong><p>Completed</p></div>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon purple">↗</span>
+            <div><strong id="completionRate">0%</strong><p>Completion rate</p></div>
+          </article>
+        </section>
+
+        <section class="board" aria-label="Task board">
+          <article class="column todo-column">
+            <div class="column-heading">
+              <span class="status-dot blue-dot"></span>
+              <h3>To Do</h3>
+              <span id="todoCount" class="count">0</span>
+            </div>
+            <div id="todoList" class="task-list"></div>
+          </article>
+
+          <article class="column progress-column">
+            <div class="column-heading">
+              <span class="status-dot yellow-dot"></span>
+              <h3>In Progress</h3>
+              <span id="columnProgressCount" class="count">0</span>
+            </div>
+            <div id="progressList" class="task-list"></div>
+          </article>
+
+          <article class="column done-column">
+            <div class="column-heading">
+              <span class="status-dot green-dot"></span>
+              <h3>Completed</h3>
+              <span id="columnDoneCount" class="count">0</span>
+            </div>
+            <div id="doneList" class="task-list"></div>
+          </article>
+        </section>
+
+        <div class="bottom-bar">
+          <p id="progressMessage">Ready to make progress? Add your first task!</p>
+          <button id="clearCompleted" class="text-btn" type="button">
+            Clear completed
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with <span class="accent">♥</span> for Bug Bash Arena</p>
+      <span>Plan · Focus · Achieve</span>
+    </footer>
+  </div>
+</body>
+</html>
